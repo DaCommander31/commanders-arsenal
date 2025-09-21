@@ -1,4 +1,4 @@
-package dev.dacommander31.util;
+package dev.dacommander31.cmda.util;
 
 
 import dev.dacommander31.cmda.data.ClibRunnable;

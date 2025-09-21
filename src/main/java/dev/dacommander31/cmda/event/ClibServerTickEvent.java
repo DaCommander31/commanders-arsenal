@@ -2,7 +2,7 @@ package dev.dacommander31.cmda.event;
 
 import dev.dacommander31.cmda.CommandersArsenal;
 import dev.dacommander31.cmda.data.trajectory.TrajectoryTraceManager;
-import dev.dacommander31.util.ClibScheduler;
+import dev.dacommander31.cmda.util.ClibScheduler;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.tick.ServerTickEvent;
