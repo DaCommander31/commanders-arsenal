@@ -1,7 +1,7 @@
 package dev.dacommander31.cmda.data.trajectory;
 
-import dev.dacommander31.cmda.data.event.TrajectoryEndCallback;
-import dev.dacommander31.cmda.data.event.TrajectoryStepCallback;
+import dev.dacommander31.cmda.event.TrajectoryEndCallback;
+import dev.dacommander31.cmda.event.TrajectoryStepCallback;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;

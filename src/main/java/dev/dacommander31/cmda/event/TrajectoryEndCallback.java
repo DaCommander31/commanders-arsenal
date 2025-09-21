@@ -1,4 +1,4 @@
-package dev.dacommander31.cmda.data.event;
+package dev.dacommander31.cmda.event;
 
 import net.minecraft.world.phys.Vec3;
 
