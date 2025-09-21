@@ -16,7 +16,7 @@ import net.neoforged.neoforge.event.server.ServerStartingEvent;
 
 @Mod(CommandersArsenal.MOD_ID)
 public class CommandersArsenal {
-    public static final String MOD_ID = "examplemod";
+    public static final String MOD_ID = "cmda";
     public static final Logger LOGGER = LogUtils.getLogger();
 
     public CommandersArsenal(IEventBus modEventBus, ModContainer modContainer) {
