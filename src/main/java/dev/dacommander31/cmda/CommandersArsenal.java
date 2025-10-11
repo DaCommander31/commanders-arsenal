@@ -1,5 +1,10 @@
 package dev.dacommander31.cmda;
 
+import dev.dacommander31.cmda.block.CABlocks;
+import dev.dacommander31.cmda.entity.CAEntities;
+import dev.dacommander31.cmda.item.CAItems;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.CreativeModeTabs;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -24,6 +29,10 @@ public class CommandersArsenal {
 
         NeoForge.EVENT_BUS.register(this);
 
+        CAEntities.register(modEventBus);
+        CAItems.register(modEventBus);
+        CABlocks.register(modEventBus);
+
         modEventBus.addListener(this::addCreative);
 
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
@@ -33,9 +42,11 @@ public class CommandersArsenal {
     }
 
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
+        if (event.getTabKey() == CreativeModeTabs.REDSTONE_BLOCKS) {
+            event.accept(CABlocks.EMP_REACTOR);
+        }
     }
 
-    // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event) {
     }
