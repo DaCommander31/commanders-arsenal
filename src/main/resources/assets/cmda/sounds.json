@@ -1,0 +1,8 @@
+{
+  "block.emp_reactor.pulse": {
+    "sounds": [
+      "cmda:block/emp_reactor/pulse"
+    ],
+    "subtitle": "sounds.cmda.block.emp_reactor.pulse"
+  }
+}

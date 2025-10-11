@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "cmda:block/emp_reactor"
+    },
+    "lit=true": {
+      "model": "cmda:block/emp_reactor_powered"
+    }
+  }
+}

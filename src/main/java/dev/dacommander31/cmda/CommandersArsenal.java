@@ -3,6 +3,7 @@ package dev.dacommander31.cmda;
 import dev.dacommander31.cmda.block.CABlocks;
 import dev.dacommander31.cmda.entity.CAEntities;
 import dev.dacommander31.cmda.item.CAItems;
+import dev.dacommander31.cmda.sound.CASounds;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
 import org.slf4j.Logger;
@@ -29,6 +30,7 @@ public class CommandersArsenal {
 
         NeoForge.EVENT_BUS.register(this);
 
+        CASounds.register(modEventBus);
         CAEntities.register(modEventBus);
         CAItems.register(modEventBus);
         CABlocks.register(modEventBus);
