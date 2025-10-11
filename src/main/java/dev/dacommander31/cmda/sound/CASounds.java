@@ -13,7 +13,7 @@ public class CASounds {
     public static final DeferredRegister<SoundEvent> SOUND_EVENTS =
             DeferredRegister.create(Registries.SOUND_EVENT, CommandersArsenal.MOD_ID);
 
-    public static final Supplier<SoundEvent> EMP_REACTOR_PULSE = registerSoundEvent("block/emp_reactor/pulse");
+    public static final Supplier<SoundEvent> EMP_REACTOR_PULSE = registerSoundEvent("block.emp_reactor.pulse");
 
     private static Supplier<SoundEvent> registerSoundEvent(String name) {
         ResourceLocation id = ResourceLocation.fromNamespaceAndPath(CommandersArsenal.MOD_ID, name);

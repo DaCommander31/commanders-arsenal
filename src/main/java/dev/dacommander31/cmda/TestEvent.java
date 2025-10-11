@@ -3,6 +3,7 @@ package dev.dacommander31.cmda;
 import com.lowdragmc.photon.client.fx.EntityEffectExecutor;
 import com.lowdragmc.photon.client.fx.FX;
 import com.lowdragmc.photon.client.fx.FXHelper;
+import dev.dacommander31.cmda.block.CABlocks;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.Level;
 import net.neoforged.bus.api.SubscribeEvent;
