@@ -1,3 +1,5 @@
 {
-  "block.cmda.emp_reactor": "EMP Reactor"
+  "block.cmda.emp_reactor": "EMP Reactor",
+
+  "sounds.cmda.block.emp_reactor.pulse": "EMP Reactor pulse"
 }

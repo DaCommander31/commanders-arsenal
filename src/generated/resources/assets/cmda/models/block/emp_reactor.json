@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "cmda:block/emp_reactor_bottom",
+    "side": "cmda:block/emp_reactor_side",
+    "top": "cmda:block/emp_reactor_top"
+  }
+}
