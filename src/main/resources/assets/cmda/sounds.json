@@ -4,5 +4,11 @@
       "cmda:block/emp_reactor/pulse"
     ],
     "subtitle": "sounds.cmda.block.emp_reactor.pulse"
+  },
+  "event.mob_effect.emp_stun": {
+    "sounds": [
+      "cmda:event/mob_effect/emp_stun"
+    ],
+    "subtitle": "sounds.cmda.event.mob_effect.emp_stun"
   }
 }

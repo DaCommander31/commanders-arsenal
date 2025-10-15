@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "dev.dacommander31.cmda.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "MobEffectMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

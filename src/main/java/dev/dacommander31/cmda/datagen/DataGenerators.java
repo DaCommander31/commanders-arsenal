@@ -27,7 +27,11 @@ public class DataGenerators {
 
         generator.addProvider(event.includeServer(), new LootTableProvider(packOutput, Collections.emptySet(),
                 List.of(new LootTableProvider.SubProviderEntry(CABlockLootTableProvider::new, LootContextParamSets.BLOCK)), lookupProvider));
+        generator.addProvider(event.includeServer(), new CARecipeProvider(packOutput, lookupProvider));
+        generator.addProvider(event.includeServer(), new CAEntityTypeTagsProvider(packOutput, lookupProvider, existingFileHelper));
 
         generator.addProvider(event.includeClient(), new CABlockStateProvider(packOutput, existingFileHelper));
+        generator.addProvider(event.includeClient(), new CAItemModelProvider(packOutput, existingFileHelper));
+        generator.addProvider(event.includeClient(), new CAParticleDescriptionProvider(packOutput, existingFileHelper));
     }
 }

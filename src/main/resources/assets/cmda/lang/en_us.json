@@ -1,5 +1,8 @@
 {
   "block.cmda.emp_reactor": "EMP Reactor",
 
-  "sounds.cmda.block.emp_reactor.pulse": "EMP Reactor pulse"
+  "item.cmda.heart_of_the_warden": "Heart of the Warden",
+
+  "sounds.cmda.block.emp_reactor.pulse": "EMP Reactor pulse",
+  "sounds.cmda.event.mob_effect.emp_stun": "Mob stunned by EMP"
 }

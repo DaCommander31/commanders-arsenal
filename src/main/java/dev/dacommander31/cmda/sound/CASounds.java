@@ -14,6 +14,7 @@ public class CASounds {
             DeferredRegister.create(Registries.SOUND_EVENT, CommandersArsenal.MOD_ID);
 
     public static final Supplier<SoundEvent> EMP_REACTOR_PULSE = registerSoundEvent("block.emp_reactor.pulse");
+    public static final Supplier<SoundEvent> EMP_STUN = registerSoundEvent("event.mob_effect.emp_stun");
 
     private static Supplier<SoundEvent> registerSoundEvent(String name) {
         ResourceLocation id = ResourceLocation.fromNamespaceAndPath(CommandersArsenal.MOD_ID, name);

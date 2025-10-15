@@ -4,7 +4,9 @@ import com.lowdragmc.photon.client.fx.BlockEffectExecutor;
 import com.lowdragmc.photon.client.fx.FX;
 import com.lowdragmc.photon.client.fx.FXHelper;
 import com.mojang.serialization.MapCodec;
+import dev.dacommander31.cmda.CATags;
 import dev.dacommander31.cmda.CommandersArsenal;
+import dev.dacommander31.cmda.effect.CAMobEffects;
 import dev.dacommander31.cmda.sound.CASounds;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
@@ -12,6 +14,11 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.damagesource.DamageTypes;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
@@ -27,6 +34,7 @@ public class EMPReactorBlock extends Block {
     public static final BooleanProperty LIT = BlockStateProperties.LIT;
 
     private static final int PULSE_DELAY = 40;
+    private static final float EMP_RANGE = 7f;
 
     @Override
     protected MapCodec<? extends Block> codec() {
@@ -68,26 +76,34 @@ public class EMPReactorBlock extends Block {
 
     @Override
     protected void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
-        if (state.getValue(LIT)) {
-            FX pulse = FXHelper.getFX(ResourceLocation.fromNamespaceAndPath(CommandersArsenal.MOD_ID, "emp_shockwave"));
-            if (pulse != null) {
-                new BlockEffectExecutor(pulse, level, pos).start();
-            }
-            level.playSound(
-                    null,
-                    (double) pos.getX() + 0.5,
-                    (double) pos.getY() + 0.5,
-                    (double) pos.getZ() + 0.5,
-                    CASounds.EMP_REACTOR_PULSE.get(),
-                    SoundSource.BLOCKS,
-                    1.0F,
-                    random.nextIntBetweenInclusive(8, 12) / 10f
-            );
+        if (!state.getValue(LIT)) return;
 
+        FX pulse = FXHelper.getFX(ResourceLocation.fromNamespaceAndPath(CommandersArsenal.MOD_ID, "emp_shockwave"));
+        if (pulse != null) {
+            new BlockEffectExecutor(pulse, level, pos).start();
         }
+        affectEntities(level, pos);
+        level.playSound(
+                null,
+                (double) pos.getX() + 0.5,
+                (double) pos.getY() + 0.5,
+                (double) pos.getZ() + 0.5,
+                CASounds.EMP_REACTOR_PULSE.get(),
+                SoundSource.BLOCKS,
+                1.0F,
+                random.nextIntBetweenInclusive(8, 12) / 10f
+        );
 
         schedulePulse(level, pos, state);
+    }
 
+    private void affectEntities(ServerLevel level, BlockPos pos) {
+        level.getEntities().getAll().forEach(entity -> {
+            if (entity instanceof LivingEntity livingEntity && livingEntity.getType().is(CATags.Entities.AFFECTED_BY_EMP)
+                    && Math.sqrt(livingEntity.distanceToSqr(pos.getX(), pos.getY(), pos.getZ())) <= EMP_RANGE) {
+                livingEntity.addEffect(new MobEffectInstance(CAMobEffects.EMP_STUN, 40, 0));
+            }
+        });
     }
 
     private void schedulePulse(Level level, BlockPos pos, BlockState state) {

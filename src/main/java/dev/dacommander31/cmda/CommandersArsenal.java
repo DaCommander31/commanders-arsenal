@@ -1,11 +1,14 @@
 package dev.dacommander31.cmda;
 
 import dev.dacommander31.cmda.block.CABlocks;
+import dev.dacommander31.cmda.effect.CAMobEffects;
 import dev.dacommander31.cmda.entity.CAEntities;
 import dev.dacommander31.cmda.item.CAItems;
+import dev.dacommander31.cmda.particle.CAParticles;
 import dev.dacommander31.cmda.sound.CASounds;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.fml.common.EventBusSubscriber;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -31,9 +34,11 @@ public class CommandersArsenal {
         NeoForge.EVENT_BUS.register(this);
 
         CASounds.register(modEventBus);
+        CAParticles.register(modEventBus);
         CAEntities.register(modEventBus);
         CAItems.register(modEventBus);
         CABlocks.register(modEventBus);
+        CAMobEffects.register(modEventBus);
 
         modEventBus.addListener(this::addCreative);
 
