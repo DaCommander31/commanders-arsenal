@@ -2,14 +2,12 @@ package dev.dacommander31.cmda.effect;
 
 import dev.dacommander31.cmda.CommandersArsenal;
 import dev.dacommander31.cmda.effect.custom.EMPStunMobEffect;
-import dev.dacommander31.cmda.particle.CAParticles;
 import dev.dacommander31.cmda.sound.CASounds;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
-import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.neoforged.bus.api.IEventBus;
